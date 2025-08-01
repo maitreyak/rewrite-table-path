@@ -17,17 +17,19 @@
 ---
 services:
   spark-iceberg:
-    image: spark-iceberg-docker:6.0
+    image: spark-iceberg-docker:7.0
     container_name: spark-iceberg-us-west-2
     build: spark/
     volumes:
       - ./warehouse:/home/iceberg/warehouse
       - ./notebooks:/home/iceberg/notebooks/notebooks
+      - /Users/mk/.aws:/root/.aws:ro
     environment:
-      - AWS_ACCESS_KEY_ID=<>
-      - AWS_SECRET_ACCESS_KEY=<>
-      - AWS_SESSION_TOKEN=<>
+      # - AWS_ACCESS_KEY_ID=<>
+      # - AWS_SECRET_ACCESS_KEY=<>
+      # - AWS_SESSION_TOKEN=<>
       - AWS_REGION=us-west-2
+      - AWS_PROFILE=adfs
     ports:
       - 8889:8888
       - 8089:8080
