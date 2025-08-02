@@ -16,6 +16,7 @@
 # syntax=docker/dockerfile:1
 FROM python:3.10-bullseye
 
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       sudo \
@@ -28,6 +29,8 @@ RUN apt-get update && \
       ssh && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+RUN sudo dpkg --add-architecture amd64 && apt update && sudo apt-get install binutils:amd64 libwebkit2gtk-4.0-37:amd64 -y
 
 # Install Jupyter and other python deps
 COPY requirements.txt .
