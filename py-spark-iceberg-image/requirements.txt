@@ -9,3 +9,4 @@ grpcio==1.73.0
 pycolor==1.2.1
 papermill==2.6.0
 boto3
+mermaid-magic

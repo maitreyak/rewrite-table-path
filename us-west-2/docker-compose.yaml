@@ -17,7 +17,7 @@
 ---
 services:
   spark-iceberg:
-    image: spark-iceberg-docker:8.0
+    image: spark-iceberg-docker:9.0
     container_name: spark-iceberg-us-west-2
     build: spark/
     volumes:
